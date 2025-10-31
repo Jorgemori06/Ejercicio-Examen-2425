@@ -41,9 +41,27 @@ y devuelva el tiempo máximo (en días) que ese piloto estuvo sin ganar
 una carrera. Es decir, el número máximo de días transcurridos 
 entre dos carreras ganadas por el piloto. Si el piloto no ha ganado 
 al menos dos carreras, la función debe devolver `None`."""
+def dias_entre_fechas(fecha1:datetime, fecha2:datetime)->int:
+    dias= (fecha2 - fecha1).days
+    return dias
 
-def maximo_dias_sin_ganar(lista:list[CarreraFP], nombre_piloto:str)->int:
-    
+def maximo_dias_sin_ganar(carreras:list[CarreraFP], nombre_piloto:str)->int:
+    fechas_ganadas=[]
+    for carrera in carreras:
+        if carrera.podio[0].nombre==nombre_piloto:
+            fechas_ganadas.append(carrera.fecha_hora)
+    maximo_dias_sin_ganar=0
+    if len(fechas_ganadas)<2:         
+        return None
+    if len(fechas_ganadas)>1:         
+        for carrera in fechas_ganadas:
+            if dias_entre_fechas(fechas_ganadas[0], fechas_ganadas[1])>maximo_dias_sin_ganar:
+                maximo_dias_sin_ganar=dias_entre_fechas(fechas_ganadas[0], fechas_ganadas[1])
+    return maximo_dias_sin_ganar
+
+
+        
+
 
 
 
