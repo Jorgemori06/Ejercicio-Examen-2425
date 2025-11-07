@@ -133,7 +133,7 @@ Devuelve una lista con las escuderías que solo tienen un piloto.
 
 ```
 Test escuderias_con_solo_un_piloto
-['Suzuki', 'KALEX']
+['Yamaha','Suzuki', 'KALEX']
 ```
 ---
 
